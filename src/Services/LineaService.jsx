@@ -78,7 +78,7 @@ export async function newLinea(linea) {
 export async function eliminarLineas(id) {
   const urlBase = API_URL + "/lineaEliminar";
   const { data } = await axios({
-    method: "PUT",
+    method: "DELETE",
     url: `${urlBase}/${id}`,
   });
   return true;

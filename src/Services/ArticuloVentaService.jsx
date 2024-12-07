@@ -65,7 +65,7 @@ export async function newArticuloVenta(model) {
 export async function eliminarArticulosVenta(id) {
   const urlBase = API_URL + "/articulosEliminar";
   const { data } = await axios({
-    method: "PUT",
+    method: "DELETE",
     url: `${urlBase}/${id}`,
   });
   return true;

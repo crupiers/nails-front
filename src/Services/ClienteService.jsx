@@ -78,7 +78,7 @@ export async function newCliente(cliente) {
 export async function eliminarCliente(id) {
   const urlBase = API_URL + "/clienteEliminar";
   const { data } = await axios({
-    method: "PUT",
+    method: "DELETE",
     url: `${urlBase}/${id}`,
   });
   return true;

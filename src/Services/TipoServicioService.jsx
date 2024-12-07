@@ -77,7 +77,7 @@ export async function newTipoServicio(tipoServicio) {
 export async function eliminarTipoServicio(id) {
   const urlBase = API_URL + "/tipoServicioEliminar";
   const { data } = await axios({
-    method: "PUT",
+    method: "DELETE",
     url: `${urlBase}/${id}`,
   });
   return true;

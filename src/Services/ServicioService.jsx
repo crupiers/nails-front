@@ -59,7 +59,7 @@ export async function newServicio(servicio) {
 export async function eliminarServicio(id) {
   try {
     const { data } = await axios({
-      method: "PUT",
+      method: "DELETE",
       url: `${API_URL}/servicioEliminar/${id}`,
     });
     return data;
