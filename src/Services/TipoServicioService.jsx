@@ -47,7 +47,7 @@ export async function newTipoServicio(tipoServicio) {
     if (tipoServicio.id > 0) {
       const { data } = await axios({
         method: "PUT",
-        url: `${API_URL}/tipoServicios/${tipoServicio.id}`,
+        url: `${API_URL}/tiposServicios/${tipoServicio.id}`,
         data: tipoServicio,
       });
     } else {
