@@ -54,7 +54,7 @@ export default function ArticuloVenta({ title }) {
       ...articulo,
       linea: selectedLinea, // Asumiendo que la línea seleccionada es el id de la línea
     };
-    window.alert("id lina" + selectedLinea);
+    //window.alert("id lina" + selectedLinea);
     newArticuloVenta(data);
     // Redirigimos a la pagina de inicio
     navegacion("/articuloList");

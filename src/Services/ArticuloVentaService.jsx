@@ -31,7 +31,7 @@ export async function obtenerArticuloVenta(id) {
 export async function newArticuloVenta(model) {
   try {
     if (model.id > 0) {
-      window.alert("entra por el put");
+      //window.alert("entra por el put");
       const { data } = await axios({
         method: "PUT",
         url: `${API_URL}/articulos/${model.id}`,
