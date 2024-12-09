@@ -38,7 +38,7 @@ export async function newArticuloVenta(model) {
         data: model,
       });
     } else {
-      window.alert("entra por el post");
+      //window.alert("entra por el post");
       const { data } = await axios({
         method: "POST",
         url: `${API_URL}/articulos`,
@@ -63,7 +63,7 @@ export async function newArticuloVenta(model) {
 }
 
 export async function eliminarArticulosVenta(id) {
-  const urlBase = API_URL + "/articulosEliminar";
+  const urlBase = API_URL + "/articuloEliminar";
   const { data } = await axios({
     method: "DELETE",
     url: `${urlBase}/${id}`,
