@@ -165,6 +165,7 @@ export default function Servicio({ title }) {
       listaItems: servicios.map((item) => ({
         ...item,
         tipoServicioId: item.tipoServicioId,
+        observacion: item.observaciones
       })),
     };
 
