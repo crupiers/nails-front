@@ -18,7 +18,7 @@ export default function Servicio({ title }) {
   const [fecha, setFecha] = useState(new Date().toISOString().split("T")[0]);
   const [tiposServicio, setTiposServicio] = useState([]);
   const [servicios, setServicios] = useState([]);
-  const [total, setTotal] = useState(0); // Estado para el total
+  const [totalCalculado, setTotalCalculado] = useState(0); // Estado para el total
   const [errors, setErrors] = useState({
     fecha: "",
     cliente: "",
@@ -37,7 +37,7 @@ export default function Servicio({ title }) {
       (acc, servicio) => acc + (parseFloat(servicio.precio) || 0),
       0,
     );
-    setTotal(nuevoTotal);
+    setTotalCalculado(nuevoTotal);
   }, [servicios]);
 
   const cargarModel2 = async () => {
@@ -158,7 +158,9 @@ export default function Servicio({ title }) {
 
     const data = {
       ...servicio,
-      fechaDocumento: fecha,
+      total: totalCalculado,
+      fechaRegistro: fecha,
+      fechaRealizacion: fecha,
       cliente: selectedCliente,
       listaItems: servicios.map((item) => ({
         ...item,
@@ -273,7 +275,7 @@ export default function Servicio({ title }) {
         </button>
 
         <div>
-          <h4>Total: {total}</h4>
+          <h4>Total: {totalCalculado}</h4>
         </div>
 
         <button type="submit">Guardar</button>
