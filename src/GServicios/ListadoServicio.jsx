@@ -163,7 +163,7 @@ export default function ListadoServicio() {
                   <th scope="row">{servicio.id}</th>
 
                   <td>{servicio.clienteRazonSocial}</td>
-                  <td>{servicio.fechaDocumento}</td>
+                  <td>{servicio.fechaRegistro}</td>
                   <td className="text-center">
                     <div>
                       <Link
