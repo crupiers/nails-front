@@ -146,6 +146,16 @@ export default function ListadoServicio() {
                     </span>
                   )}
                 </th>
+
+                <th scope="col" onClick={() => handleSort("total")}>
+                  Total
+                  {sortConfig.key === "total" && (
+                    <span>
+                      {sortConfig.direction === "ascending" ? " 🔽" : " 🔼"}
+                    </span>
+                  )}
+                </th>
+
                 <th scope="col" onClick={() => handleSort("fecha")}>
                   Fecha
                   {sortConfig.key === "fecha" && (
@@ -161,8 +171,8 @@ export default function ListadoServicio() {
               {sortedData().map((servicio, indice) => (
                 <tr key={indice}>
                   <th scope="row">{servicio.id}</th>
-
                   <td>{servicio.clienteRazonSocial}</td>
+                  <td>{servicio.total}</td>
                   <td>{servicio.fechaRegistro}</td>
                   <td className="text-center">
                     <div>
