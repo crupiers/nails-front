@@ -75,7 +75,7 @@ export default function Servicio({ title }) {
   const handleAddServicio = () => {
     setServicios([
       ...servicios,
-      { tipoServicio: "", precio: "", observaciones: "" },
+      { tipoServicio: "", precio: "", observacion: "" },
     ]);
   };
 
@@ -168,7 +168,7 @@ export default function Servicio({ title }) {
       listaItems: servicios.map((item) => ({
         ...item,
         tipoServicioId: item.tipoServicioId,
-        observacion: item.observaciones
+        observacion: item.observacion
       })),
     };
 
@@ -307,8 +307,8 @@ export default function Servicio({ title }) {
             <label>Observaciones:</label>
             <input
               type="text"
-              name="observaciones"
-              value={servicio.observaciones}
+              name="observacion"
+              value={servicio.observacion}
               onChange={(e) => handleServicioChange(index, e)}
             />
             <button type="button" onClick={() => handleRemoveServicio(index)}>
