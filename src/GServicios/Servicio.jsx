@@ -173,6 +173,49 @@ export default function Servicio({ title }) {
     navegacion("/servicioList");
   };
 
+  function formatearPrecio(precio) {
+    var precioFormateado = "";
+    var precioString = `${precio}`;
+    var decimal = "";
+    
+    precioString = precioString.replace(".",","); //para decimal ingles
+    if(precioString.includes(",")) {
+      decimal = "," + precioString.split(",")[1];
+      precioString = precioString.split(",")[0];
+    }
+    
+    const longitud = precioString.length;
+    var cantidadPuntos = 0;
+    var i = 1;
+
+    if(longitud<=3*i) {
+      return precioString+decimal;
+    }
+
+    while(longitud>3*i){
+      cantidadPuntos=cantidadPuntos+1;
+      i = i + 1;
+    }
+    
+    var cont = 0;
+    for(var j = longitud-1; j > 0; j--) {
+      precioFormateado = precioFormateado + precioString[j];
+      cont = cont + 1;
+      if(cont == 3) {
+        cont = 0;
+        precioFormateado = precioFormateado + ".";
+      }
+    }
+    precioFormateado = precioFormateado + precioString[0]
+
+    var precioFinal = "";
+    for(var k = precioFormateado.length - 1; k >= 0; k--) {
+      precioFinal = precioFinal + precioFormateado[k];
+    }
+
+    return precioFinal+decimal;
+  }
+
   return (
     <div className="container">
       <div>
@@ -276,7 +319,7 @@ export default function Servicio({ title }) {
         </button>
 
         <div>
-          <h4>Total: {totalCalculado}</h4>
+          <h4>Total: {formatearPrecio(totalCalculado)}</h4>
         </div>
 
         <button type="submit">Guardar</button>

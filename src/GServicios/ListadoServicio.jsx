@@ -89,7 +89,7 @@ export default function ListadoServicio() {
     return sorted;
   };
 
-  const formatearFecha = (fecha) => {
+  function formatearFecha(fecha) {
     if (fecha == "null"){
       return "-----SIN FECHA-----"
     }
@@ -98,6 +98,89 @@ export default function ListadoServicio() {
     const anio = fecha.split("T")[0].split("-")[0];
     return `${dia}`+"/"+`${mes}`+"/"+`${anio}`;
   }
+  
+  function formatearPrecio(precio) {
+    var precioFormateado = "";
+    var precioString = `${precio}`;
+    var decimal = "";
+    
+    precioString = precioString.replace(".",","); //para decimal ingles
+    if(precioString.includes(",")) {
+      decimal = "," + precioString.split(",")[1];
+      precioString = precioString.split(",")[0];
+    }
+    
+    const longitud = precioString.length;
+    var cantidadPuntos = 0;
+    var i = 1;
+
+    if(longitud<=3*i) {
+      return precioString+decimal;
+    }
+
+    while(longitud>3*i){
+      cantidadPuntos=cantidadPuntos+1;
+      i = i + 1;
+    }
+    
+    var cont = 0;
+    for(var j = longitud-1; j > 0; j--) {
+      precioFormateado = precioFormateado + precioString[j];
+      cont = cont + 1;
+      if(cont == 3) {
+        cont = 0;
+        precioFormateado = precioFormateado + ".";
+      }
+    }
+    precioFormateado = precioFormateado + precioString[0]
+
+    var precioFinal = "";
+    for(var k = precioFormateado.length - 1; k >= 0; k--) {
+      precioFinal = precioFinal + precioFormateado[k];
+    }
+
+    return precioFinal+decimal;
+  }
+
+  /**
+  console.log("-------------------------------------------")
+  
+  console.log("uno:")
+  console.log(formatearPrecio(100));
+  console.log(formatearPrecio(1000));
+  console.log(formatearPrecio(1000000));
+  console.log(formatearPrecio(100000));
+  console.log(formatearPrecio(10000));
+  
+  console.log("-------------------------------------------")
+  
+  console.log("dos:")
+  console.log(formatearPrecio(100.99));
+  console.log(formatearPrecio(1000.99));
+  console.log(formatearPrecio(1000000.99));
+  console.log(formatearPrecio(100000.99));
+  console.log(formatearPrecio(10000.99));
+  
+  console.log("-------------------------------------------")
+  
+  console.log("tres:")
+  console.log(formatearPrecio("100,99"));
+  console.log(formatearPrecio("1000,99"));
+  console.log(formatearPrecio("1000000,99"));
+  console.log(formatearPrecio("100000,99"));
+  console.log(formatearPrecio("10000,99"));
+
+  console.log("-------------------------------------------")
+
+  console.log("cuatro:")
+  console.log(formatearPrecio("100.99"));
+  console.log(formatearPrecio("1000.99"));
+  console.log(formatearPrecio("1000000.99"));
+  console.log(formatearPrecio("100000.99"));
+  console.log(formatearPrecio("10000.99"));
+
+  console.log("-------------------------------------------")
+  */
 
   return (
     <div className="container">
@@ -182,7 +265,7 @@ export default function ListadoServicio() {
                 <tr key={indice}>
                   <th scope="row">{servicio.id}</th>
                   <td>{servicio.clienteRazonSocial}</td>
-                  <td>{servicio.total}</td>
+                  <td>{formatearPrecio(servicio.total)}</td>
                   <td>{formatearFecha(`${servicio.fechaRegistro}`)}</td>
                   <td className="text-center">
                     <div>
