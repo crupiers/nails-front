@@ -40,6 +40,7 @@ export default function Servicio({ title }) {
     setTotalCalculado(nuevoTotal);
   }, [servicios]);
 
+  /**
   const cargarModel2 = async () => {
     if (id > 0) {
       const resultado = await obtenerServicio(id);
@@ -49,12 +50,14 @@ export default function Servicio({ title }) {
       setServicios(resultado.listaItems); // Establecer los item servicios cargados
     }
   };
+  */
+
   const cargarModel = async () => {
     if (id > 0) {
       const resultado = await obtenerServicio(id);
       setServicio(resultado);
-      setSelectedCliente(String(resultado.cliente.id)); // Convertir a string
-      setFecha(new Date(resultado.fechaDocumento).toISOString().split("T")[0]);
+      setSelectedCliente(String(resultado.cliente)); // Convertir a string
+      setFecha(new Date(resultado.fechaRegistro).toISOString().split("T")[0]);
       setServicios(resultado.listaItems);
     }
   };
