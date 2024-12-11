@@ -89,6 +89,16 @@ export default function ListadoServicio() {
     return sorted;
   };
 
+  const formatearFecha = (fecha) => {
+    if (fecha == "null"){
+      return "-----SIN FECHA-----"
+    }
+    const dia = fecha.split("T")[0].split("-")[2];
+    const mes = fecha.split("T")[0].split("-")[1];
+    const anio = fecha.split("T")[0].split("-")[0];
+    return `${dia}`+"/"+`${mes}`+"/"+`${anio}`;
+  }
+
   return (
     <div className="container">
       <div>
@@ -173,7 +183,7 @@ export default function ListadoServicio() {
                   <th scope="row">{servicio.id}</th>
                   <td>{servicio.clienteRazonSocial}</td>
                   <td>{servicio.total}</td>
-                  <td>{servicio.fechaRegistro}</td>
+                  <td>{formatearFecha(`${servicio.fechaRegistro}`)}</td>
                   <td className="text-center">
                     <div>
                       <Link
