@@ -189,7 +189,7 @@ export default function Servicio({ title }) {
     var i = 1;
 
     if(longitud<=3*i) {
-      return precioString+decimal;
+      return "$"+precioString+decimal;
     }
 
     while(longitud>3*i){
@@ -213,7 +213,7 @@ export default function Servicio({ title }) {
       precioFinal = precioFinal + precioFormateado[k];
     }
 
-    return precioFinal+decimal;
+    return "$"+precioFinal+decimal;
   }
 
   return (
