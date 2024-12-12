@@ -51,7 +51,7 @@ return (
             </div>
 
             <div className="col-4">
-              <Link to={`/servicio/${id}`} className="btn btn-info btn-sm">
+              <Link to={`/verificarPassword/${id}`} className="btn btn-info btn-sm">
                 Editar
               </Link>
             </div>

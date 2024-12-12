@@ -280,7 +280,7 @@ export default function ListadoServicio() {
                         Detalle
                       </Link>
                       <Link
-                        to={`/servicio/${servicio.id}`}
+                        to={`/verificarPassword/${servicio.id}`}
                         className="btn btn-link btn-sm me-3"
                       >
                         <img

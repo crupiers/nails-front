@@ -20,6 +20,7 @@ import ServicioProvider from "./GServicios/ServicioContext";
 import Servicio from "./GServicios/Servicio";
 import ListadoServicio from "./GServicios/ListadoServicio";
 import ServicioDetalle from "./GServicios/ServicioDetalle";
+import VerificarPassword from "./GServicios/VerificarPassword";
 
 function App() {
   return (
@@ -174,6 +175,15 @@ function App() {
             element={
               <ServicioProvider>
                 <ServicioDetalle/>
+              </ServicioProvider>
+            }
+          />
+          <Route
+            exact
+            path="/verificarPassword/:id"
+            element={
+              <ServicioProvider>
+                <VerificarPassword/>
               </ServicioProvider>
             }
           />
