@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { newServicio, obtenerServicio } from "../Services/ServicioService";
 import { obtenerClientesForCombo } from "../Services/ClienteService";
 import { obtenerTiposServiciosForCombo } from "../Services/TipoServicioService";
@@ -327,6 +327,13 @@ export default function Servicio({ title }) {
 
         <button type="submit">Guardar</button>
       </form>
+
+      <div className="col-4">
+              <Link to={`/ServicioList`} className="btn btn-info btn-sm">
+                Regresar
+              </Link>
+            </div>
+
     </div>
   );
 }

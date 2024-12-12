@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { IMAGEN_EDIT, IMAGEN_DELETE, ITEMS_PER_PAGE } from "../App.config";
+import { IMAGEN_EDIT, IMAGEN_DELETE, ITEMS_PER_PAGE, IMAGEN_DETAIL } from "../App.config";
 import { ServicioContext } from "./ServicioContext";
 import {
   eliminarServicio,
@@ -269,6 +269,16 @@ export default function ListadoServicio() {
                   <td>{formatearFecha(`${servicio.fechaRegistro}`)}</td>
                   <td className="text-center">
                     <div>
+                    <Link
+                        to={`/servicio/detalle/${servicio.id}`}
+                        className="btn btn-link btn-sm me-3"
+                      >
+                        <img
+                          src={IMAGEN_DETAIL}
+                          style={{ width: "20px", height: "20px" }}
+                        />
+                        Detalle
+                      </Link>
                       <Link
                         to={`/servicio/${servicio.id}`}
                         className="btn btn-link btn-sm me-3"

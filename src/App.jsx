@@ -19,6 +19,7 @@ import ArticuloVentaProvider from "./Articulos/ArticuloVentaContext";
 import ServicioProvider from "./GServicios/ServicioContext";
 import Servicio from "./GServicios/Servicio";
 import ListadoServicio from "./GServicios/ListadoServicio";
+import ServicioDetalle from "./GServicios/ServicioDetalle";
 
 function App() {
   return (
@@ -164,6 +165,15 @@ function App() {
             element={
               <ServicioProvider>
                 <Servicio title="Editar" />
+              </ServicioProvider>
+            }
+          />
+          <Route
+            exact
+            path="/servicio/detalle/:id"
+            element={
+              <ServicioProvider>
+                <ServicioDetalle/>
               </ServicioProvider>
             }
           />
